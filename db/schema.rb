@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_13_165612) do
+ActiveRecord::Schema.define(version: 2023_03_13_220235) do
 
   create_table "days", force: :cascade do |t|
     t.string "name"
@@ -36,11 +36,29 @@ ActiveRecord::Schema.define(version: 2023_03_13_165612) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "food_weeks", force: :cascade do |t|
+    t.integer "food_id", null: false
+    t.integer "soup_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_id"], name: "index_food_weeks_on_food_id"
+    t.index ["soup_id"], name: "index_food_weeks_on_soup_id"
+  end
+
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.integer "food_id", null: false
+    t.integer "soup_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_id"], name: "index_menus_on_food_id"
+    t.index ["soup_id"], name: "index_menus_on_soup_id"
   end
 
   create_table "soups", force: :cascade do |t|
@@ -64,4 +82,8 @@ ActiveRecord::Schema.define(version: 2023_03_13_165612) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "food_weeks", "foods"
+  add_foreign_key "food_weeks", "soups"
+  add_foreign_key "menus", "foods"
+  add_foreign_key "menus", "soups"
 end
