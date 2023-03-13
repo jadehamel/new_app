@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @soup.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @soup.description %>
+</p>
+
+<%= link_to 'Edit', edit_soup_path(@soup) %> |
+<%= link_to 'Back', soups_path %>

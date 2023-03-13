@@ -1,0 +1,57 @@
+<%= form_with(model: food_week) do |form| %>
+  <% if food_week.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(food_week.errors.count, "error") %> prohibited this food_week from being saved:</h2>
+
+      <ul>
+        <% food_week.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :week_id %>
+    <%= form.number_field :week_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :day_id %>
+    <%= form.number_field :day_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :soup1_id %>
+    <%= form.number_field :soup1_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :soup2_id %>
+    <%= form.number_field :soup2_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :food1_id %>
+    <%= form.number_field :food1_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :food2_id %>
+    <%= form.number_field :food2_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :food3_id %>
+    <%= form.number_field :food3_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :food4_id %>
+    <%= form.number_field :food4_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module FoodWeeksHelper
+end
